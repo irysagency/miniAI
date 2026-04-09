@@ -1,4 +1,5 @@
 import { ChevronLeft, Sparkles } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { useStudioFlow } from '../hooks/useStudioFlow';
 import { StepIndicator } from '../components/studio/StepIndicator';
 import { StyleGrid } from '../components/studio/StyleGrid';
@@ -9,6 +10,7 @@ import { EditorPanel } from '../components/studio/EditorPanel';
 import { mockPersonas } from '../data/mockPersonas';
 
 export function StudioPage() {
+  const navigate = useNavigate();
   const { step, config, updateConfig, goNext, goBack, goToStep } = useStudioFlow();
 
   /* ── Step 1: Style selection ────────────────────────── */
@@ -57,9 +59,7 @@ export function StudioPage() {
             personas={mockPersonas}
             selectedId={selectedPersonaId}
             onSelect={id => updateConfig({ selectedPersonaId: id })}
-            onCreateNew={() => {
-              /* navigate to /personas */
-            }}
+            onCreateNew={() => navigate('/personas')}
           />
           <ConfigPanel config={config} onChange={updateConfig} />
         </div>

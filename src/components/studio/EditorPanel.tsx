@@ -12,8 +12,7 @@ export function EditorPanel({ onClose }: Props) {
   const { state, update, undo, redo, canUndo, canRedo } = useEditor();
 
   return (
-    <div className="fixed top-0 right-0 bottom-0 w-[400px] bg-white border-l border-[#E5E7EB] shadow-2xl z-50 flex flex-col"
-      style={{ animation: 'slideInRight 0.2s ease-out' }}>
+    <div className="fixed top-0 right-0 bottom-0 w-[400px] bg-white border-l border-[#E5E7EB] shadow-2xl z-50 flex flex-col animate-slide-in-right">
       {/* Header */}
       <div className="flex items-center justify-between px-5 py-4 border-b border-[#E5E7EB] shrink-0">
         <span className="font-semibold text-sm text-[#111827]">Éditeur</span>

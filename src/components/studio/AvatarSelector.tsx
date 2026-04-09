@@ -37,12 +37,14 @@ export function AvatarSelector({ personas, selectedId, onSelect, onCreateNew }: 
           </button>
         ))}
 
-        {/* Create new */}
-        <button onClick={onCreateNew} className="flex flex-col items-center gap-1.5">
-          <div className="w-14 h-14 rounded-full border-2 border-dashed border-[#E5E7EB] flex items-center justify-center hover:border-[#4F46E5]/40 transition-colors">
-            <Plus size={18} className="text-[#9CA3AF]" />
+        {/* Create new — navigates to /personas */}
+        <button onClick={onCreateNew} className="flex flex-col items-center gap-1.5 group">
+          <div className="w-14 h-14 rounded-full border-2 border-dashed border-[#E5E7EB] flex items-center justify-center group-hover:border-[#4F46E5]/40 transition-colors">
+            <Plus size={18} className="text-[#9CA3AF] group-hover:text-[#4F46E5] transition-colors" />
           </div>
-          <span className="text-[11px] text-[#9CA3AF]">Nouveau</span>
+          <span className="text-[11px] text-[#9CA3AF] group-hover:text-[#4F46E5] transition-colors">
+            Nouveau
+          </span>
         </button>
       </div>
     </div>
