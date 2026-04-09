@@ -34,6 +34,15 @@ export default {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
+      keyframes: {
+        slideInRight: {
+          from: { transform: 'translateX(100%)' },
+          to: { transform: 'translateX(0)' },
+        },
+      },
+      animation: {
+        'slide-in-right': 'slideInRight 0.2s ease-out',
+      },
     },
   },
   plugins: [],

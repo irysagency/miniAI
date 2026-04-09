@@ -23,25 +23,8 @@ APIs : fal.ai (Flux Kontext Pro) + Google Generative AI (Gemini Flash)
 - Variables d'environnement : VITE_FAL_KEY et VITE_GEMINI_KEY uniquement
 - Jamais de secrets hardcodés dans le code
 
-## Règles de design (CRITIQUE — ne jamais déroger)
-- Fond app principal : #FFFFFF ou #F8F9FB (BLANC, jamais sombre)
-- Fond canvas/preview uniquement : #F0F0F8 (très léger)
-- Accent principal : #6366F1 (indigo)
-- Accent hover : #4F52E0
-- Accent light : rgba(99,102,241,0.08)
-- Texte primaire : #0F0F14
-- Texte secondaire : #6B6B80
-- Texte muted : #A0A0B2
-- Border default : #E8E8EC
-- Border subtle : #F0F0F4
-- Border-radius cards : 12px
-- Border-radius inputs : 8px
-- Border-radius boutons : 99px (pill)
-- Transitions : 150ms ease sur tous les éléments interactifs
-- Ombres : interdites, utiliser des borders à la place
 
 ## Ce qu'il ne faut JAMAIS faire
-- Mettre un fond sombre (#0A0A14 ou similaire) sur le shell de l'app
 - Créer des fichiers ou pages non demandés
 - Modifier les types TypeScript sans demander confirmation
 - Hardcoder des clefs API ou secrets
