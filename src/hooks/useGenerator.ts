@@ -1,60 +1,35 @@
-import { useState } from 'react';
-import type { GeneratorState, ThumbnailVariant } from '../types';
-import { predefinedStyles } from '../data/styles';
+import { useState, useCallback } from 'react';
+import type { ThumbnailVariant, GeneratorConfig } from '../types';
 
-const initialVariants: ThumbnailVariant[] = [
-  { id: 'v1', url: 'linear-gradient(135deg, #E2E8F0 0%, #F1F5F9 100%)', selected: true },
-  { id: 'v2', url: 'linear-gradient(135deg, #E2E8F0 0%, #F1F5F9 100%)', selected: false },
-  { id: 'v3', url: 'linear-gradient(135deg, #E2E8F0 0%, #F1F5F9 100%)', selected: false },
-  { id: 'v4', url: 'linear-gradient(135deg, #E2E8F0 0%, #F1F5F9 100%)', selected: false },
+const MOCK_GRADIENTS = [
+  'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+  'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+  'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+  'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
 ];
 
 export function useGenerator() {
-  const [state, setState] = useState<GeneratorState>({
-    title: '',
-    subtitle: '',
-    selectedStyleId: predefinedStyles[0].id,
-    selectedColorRef: 'preset1',
-    customColorHex: '#6366F1',
-    isGenerating: false,
-    variants: initialVariants,
-  });
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [variants, setVariants] = useState<ThumbnailVariant[]>([]);
+  const [selectedVariantId, setSelectedVariantId] = useState<string | null>(null);
 
-  const updateState = (updates: Partial<GeneratorState>) => {
-    setState(prev => ({ ...prev, ...updates }));
-  };
-
-  const generateThumbnails = async () => {
-    updateState({ isGenerating: true });
-    // Mock API delay
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    // Select styling based on selectedStyleId
-    const style = predefinedStyles.find(s => s.id === state.selectedStyleId);
-    const bgUrl = style ? style.thumbnail : initialVariants[0].url;
-
-    const newVariants = initialVariants.map((v, i) => ({
-      ...v,
-      url: bgUrl, 
-      selected: i === 0
+  const generate = useCallback(async (_config: GeneratorConfig) => {
+    setIsGenerating(true);
+    setVariants([]);
+    await new Promise<void>(r => setTimeout(r, 2000));
+    const newVariants: ThumbnailVariant[] = MOCK_GRADIENTS.map((url, i) => ({
+      id: `v${i}`,
+      url,
+      selected: i === 0,
     }));
+    setVariants(newVariants);
+    setSelectedVariantId('v0');
+    setIsGenerating(false);
+  }, []);
 
-    updateState({ isGenerating: false, variants: newVariants });
-  };
+  const selectVariant = (id: string) => setSelectedVariantId(id);
 
-  const selectVariant = (id: string) => {
-    updateState({
-      variants: state.variants.map(v => ({
-        ...v,
-        selected: v.id === id
-      }))
-    });
-  };
+  const selectedVariant = variants.find(v => v.id === selectedVariantId) ?? null;
 
-  return {
-    state,
-    updateState,
-    generateThumbnails,
-    selectVariant
-  };
+  return { isGenerating, variants, selectedVariantId, selectedVariant, generate, selectVariant };
 }

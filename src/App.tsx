@@ -1,18 +1,22 @@
-import { useState } from 'react';
-import { Layout } from './components/Layout';
-import { StyleSelectionScreen } from './components/StyleSelectionScreen';
-import { PersonasScreen } from './components/PersonasScreen';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { AppLayout } from './components/layout/AppLayout';
+import { StudioPage } from './pages/StudioPage';
+import { PersonasPage } from './pages/PersonasPage';
+import { HistoryPage } from './pages/HistoryPage';
+import { SettingsPage } from './pages/SettingsPage';
 
-function App() {
-  const [activeTab, setActiveTab] = useState<'studio' | 'personas' | 'history'>('personas');
-
+export default function App() {
   return (
-    <Layout activeTab={activeTab} onTabChange={setActiveTab}>
-      {activeTab === 'studio' && <StyleSelectionScreen />}
-      {activeTab === 'personas' && <PersonasScreen />}
-      {activeTab === 'history' && <div>History Phase 2 Placeholder</div>}
-    </Layout>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<AppLayout />}>
+          <Route index element={<Navigate to="/studio" replace />} />
+          <Route path="/studio" element={<StudioPage />} />
+          <Route path="/personas" element={<PersonasPage />} />
+          <Route path="/history" element={<HistoryPage />} />
+          <Route path="/settings" element={<SettingsPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
