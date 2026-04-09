@@ -1,15 +1,17 @@
-import type { ReactNode } from 'react';
+import { useState } from 'react';
 import { Sidebar } from './Sidebar';
 
 interface LayoutProps {
-  children: ReactNode;
+  children: React.ReactNode;
+  activeTab: 'studio' | 'personas' | 'history';
+  onTabChange: (tab: 'studio' | 'personas' | 'history') => void;
 }
 
-export function Layout({ children }: LayoutProps) {
+export function Layout({ children, activeTab, onTabChange }: LayoutProps) {
   return (
-    <div className="flex h-screen w-full bg-app-main overflow-hidden">
-      <Sidebar />
-      <main className="flex-1 h-full overflow-y-auto">
+    <div className="flex w-full h-screen bg-bg-main overflow-hidden font-sans text-text-dark">
+      <Sidebar activeTab={activeTab} onTabChange={onTabChange} />
+      <main className="flex-1 h-full overflow-y-auto w-full relative pt-12 pb-24 px-16">
         {children}
       </main>
     </div>

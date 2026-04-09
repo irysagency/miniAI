@@ -7,40 +7,33 @@ export default {
   theme: {
     extend: {
       colors: {
-        app: {
+        bg: {
           main: '#FFFFFF',
-          sub: '#F8F9FB',
-          canvas: '#F0F0F8',
+          sidebar: '#F8FAFC',
         },
-        accent: {
-          primary: '#6366F1',
-          hover: '#4F52E0',
-          light: 'rgba(99,102,241,0.08)',
+        primary: {
+          DEFAULT: '#4F46E5', /* Indigo-600 */
+          light: '#EEF2FF', /* Indigo-50 */
         },
         text: {
-          primary: '#0F0F14',
-          secondary: '#6B6B80',
-          muted: '#A0A0B2',
+          dark: '#111827', /* Gray-900 */
+          gray: '#6B7280', /* Gray-500 */
+          muted: '#9CA3AF', /* Gray-400 */
         },
         border: {
-          default: '#E8E8EC',
-          subtle: '#F0F0F4',
+          default: '#E5E7EB', /* Gray-200 */
+          primary: '#4F46E5',
         }
       },
       borderRadius: {
-        'card': '12px',
-        'input': '8px',
-        'pill': '99px',
+        'card-sm': '12px',
+        'card-lg': '32px',
+        'pill': '9999px',
+        'image': '8px',
       },
-      boxShadow: {
-        'none': 'none',
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
       },
-      transitionTimingFunction: {
-        'ease': 'ease',
-      },
-      transitionDuration: {
-        '150': '150ms',
-      }
     },
   },
   plugins: [],

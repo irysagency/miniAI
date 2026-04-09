@@ -5,55 +5,18 @@
 @layer base {
   :root {
     font-family: 'Inter', system-ui, sans-serif;
-    background-color: theme('colors.app.main');
-    color: theme('colors.text.primary');
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    color: theme('colors.text.dark');
   }
   
   body {
+    background-color: theme('colors.bg.main');
     margin: 0;
     padding: 0;
-    background-color: theme('colors.app.main');
-  }
-
-  /* Universal shadow killer */
-  * {
-    box-shadow: none !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
 @layer components {
-  /* Common standard components according to constraints */
-  .panel {
-    @apply border border-border-default bg-white rounded-card;
-  }
-  
-  .input-field {
-    @apply border border-border-default rounded-input px-3 py-2 text-sm text-text-primary outline-none transition-all duration-150 ease-ease bg-white;
-  }
-  
-  .input-field:focus {
-    @apply border-accent-primary;
-  }
-  
-  .btn-primary {
-    @apply bg-accent-primary text-white rounded-pill px-4 py-2 font-medium transition-colors duration-150 ease-ease flex items-center justify-center;
-  }
-  
-  .btn-primary:hover {
-    @apply bg-accent-hover;
-  }
-  
-  .btn-secondary {
-    @apply bg-white border border-border-default text-text-primary rounded-pill px-4 py-2 font-medium transition-colors duration-150 ease-ease flex items-center justify-center;
-  }
-  
-  .btn-secondary:hover {
-    @apply bg-app-sub border-border-subtle;
-  }
-  
-  .btn-icon {
-    @apply p-2 rounded-pill text-text-secondary hover:text-text-primary hover:bg-app-sub transition-colors duration-150 ease-ease;
-  }
+  /* No specific components defined globally yet for pixel perfect rebuild */
 }

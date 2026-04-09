@@ -1,58 +1,81 @@
-import type { StylePreset } from '../types';
+export interface StylePresetData {
+  id: string;
+  name: string;
+  description: string;
+  thumbnail: string;
+}
 
-export const predefinedStyles: StylePreset[] = [
+export const newStyles: StylePresetData[] = [
   {
-    id: 's1',
-    name: 'Cyberpunk',
-    prompt: 'Neon and synthwave aesthetic',
-    thumbnail: 'linear-gradient(135deg, #FF00FF 0%, #00FFFF 100%)',
+    id: 'vlog',
+    name: 'Vlog',
+    description: 'Capturing daily life with dynamic tra...',
+    thumbnail: 'linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%)', // Mock gradient representing image
   },
   {
-    id: 's2',
-    name: 'Minimalist',
-    prompt: 'Clean, Apple-like white studio background',
-    thumbnail: 'linear-gradient(135deg, #E5E7EB 0%, #FFFFFF 100%)',
+    id: 'product-demo',
+    name: 'Product Demo',
+    description: 'Showcase software features with cle...',
+    thumbnail: 'linear-gradient(135deg, #7F1D1D 0%, #EF4444 100%)',
   },
   {
-    id: 's3',
-    name: 'Corporate',
-    prompt: 'Professional gradient, trustworthy blue',
-    thumbnail: 'linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%)',
+    id: 'talking-head',
+    name: 'Talking Head',
+    description: 'Direct-to-camera address with high-...',
+    thumbnail: 'linear-gradient(135deg, #4B140B 0%, #B91C1C 100%)',
   },
   {
-    id: 's4',
-    name: 'Vlog Lifestyle',
-    prompt: 'Warm sunlight, blurred background, high contrast',
-    thumbnail: 'linear-gradient(135deg, #FDBA74 0%, #FB923C 100%)',
+    id: 'podcast',
+    name: 'Podcast',
+    description: 'Multi-camera conversation optimize...',
+    thumbnail: 'linear-gradient(135deg, #4C1D95 0%, #8B5CF6 100%)',
   },
   {
-    id: 's5',
-    name: 'Gaming Red',
-    prompt: 'Aggressive red lighting, dark shadows',
-    thumbnail: 'linear-gradient(135deg, #991B1B 0%, #EF4444 100%)',
+    id: 'gaming',
+    name: 'Gaming',
+    description: 'High-energy gameplay with overlay ...',
+    thumbnail: 'linear-gradient(135deg, #064E3B 0%, #10B981 100%)',
   },
   {
-    id: 's6',
-    name: 'Podcast Dark',
-    prompt: 'Moody dark room, single spot light',
+    id: 'documentary',
+    name: 'Documentary',
+    description: 'Cinematic B-roll and narrative-driven...',
     thumbnail: 'linear-gradient(135deg, #111827 0%, #374151 100%)',
   },
   {
-    id: 's7',
+    id: 'tech-review',
     name: 'Tech Review',
-    prompt: 'Clean desk setup, RGB accents in background',
-    thumbnail: 'linear-gradient(135deg, #34D399 0%, #059669 100%)',
+    description: 'Detailed close-ups and analytical co...',
+    thumbnail: 'linear-gradient(135deg, #1E40AF 0%, #1D4ED8 100%)',
   },
   {
-    id: 's8',
-    name: 'Finance Guru',
-    prompt: 'Green upward arrows, luxury aesthetic',
-    thumbnail: 'linear-gradient(135deg, #065F46 0%, #10B981 100%)',
+    id: 'educational',
+    name: 'Educational',
+    description: 'Structured lessons with clear visuals.',
+    thumbnail: 'linear-gradient(135deg, #047857 0%, #10B981 100%)',
   },
   {
-    id: 's9',
-    name: 'Reactions',
-    prompt: 'High saturation, extreme expressions, pop-art colors',
-    thumbnail: 'linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%)',
+    id: 'corporate',
+    name: 'Corporate',
+    description: 'Polished and professional branding f...',
+    thumbnail: 'linear-gradient(135deg, #374151 0%, #9CA3AF 100%)',
+  },
+  {
+    id: 'coding-tutorial',
+    name: 'Coding Tutorial',
+    description: 'Screen-share focus with inset face-...',
+    thumbnail: 'linear-gradient(135deg, #1F2937 0%, #4B5563 100%)',
+  },
+  {
+    id: 'lifestyle',
+    name: 'Lifestyle',
+    description: 'Aesthetic-driven visuals and soft pa...',
+    thumbnail: 'linear-gradient(135deg, #065F46 0%, #059669 100%)',
+  },
+  {
+    id: 'setup-tour',
+    name: 'Setup Tour',
+    description: 'Smooth transitions between tech ge...',
+    thumbnail: 'linear-gradient(135deg, #111827 0%, #1F2937 100%)',
   }
 ];
